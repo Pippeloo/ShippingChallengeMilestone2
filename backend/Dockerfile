@@ -7,7 +7,7 @@ WORKDIR /code
 COPY requirements.txt /code
 
 # Install fastapi
-RUN pip install -r /code/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 # Copy the app
 COPY app /code/app
