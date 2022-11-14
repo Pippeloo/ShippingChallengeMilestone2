@@ -33,7 +33,7 @@ services:
       POSTGRES_USER: user
       POSTGRES_DB: db
     volumes:
-      - ./db:/var/lib/postgresql/data
+      - ./db/data:/var/lib/postgresql/data
     networks:
       - backend
 

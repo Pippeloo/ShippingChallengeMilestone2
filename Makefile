@@ -6,7 +6,7 @@ start:
 # Start the docker-compose stack for development
 # Usage: make start-dev
 start-dev:
-	docker-compose -f docker-compose.dev.yml up -d
+	docker-compose -f docker-compose.dev.yml up -d --build --force-recreate --no-deps
 
 # Stop the docker-compose stack
 # Usage: make stop
@@ -31,3 +31,8 @@ build:
 # Usage: make build-dev
 build-dev:
 	docker-compose -f docker-compose.dev.yml build
+
+# Log the backend output to the console
+# Usage: make log-backend
+log-backend:
+	docker logs shippingchallengemilestone2_scm2_backend_jt_1 -f

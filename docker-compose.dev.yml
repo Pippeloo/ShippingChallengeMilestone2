@@ -32,13 +32,16 @@ services:
       - backend
 
   scm2_db_jt:
-    image: postgres:latest
+    image: postgres:15.1-alpine
     environment:
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: mysecretpassword
       POSTGRES_USER: user
-      POSTGRES_DB: db
+      POSTGRES_DB: data
+    ports:
+      - "5432:5432"
     volumes:
-      - ./db:/var/lib/postgresql/data
+      - ./db/data:/var/lib/postgresql/data
+      - ./db/config/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - backend
 
