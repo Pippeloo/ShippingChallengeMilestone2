@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from .classes.Database import Database
 
 db = Database(
-    host="scm2_db_jt",
+    host="scm2-db-jt",
     database="data",
     user="user",
     password="mysecretpassword",
