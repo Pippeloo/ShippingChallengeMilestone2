@@ -1,6 +1,7 @@
 from typing import Union
 from fastapi import FastAPI
 from .classes.Database import Database
+import os
 
 db = Database(
     host="scm2-db-jt",
@@ -20,3 +21,7 @@ def read_status():
 @app.get("/api/user")
 def read_user():
     return db.get_user()
+
+@app.get("/api/hostname")
+def read_hostname():
+    return {"hostname": os.uname()[1]}
