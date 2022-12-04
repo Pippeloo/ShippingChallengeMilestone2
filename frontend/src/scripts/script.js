@@ -1,5 +1,6 @@
 // Get Server ip
 const serverIp = location.host;
+console.log(serverIp);
 
 // fetch user from API
 fetch(`http://${serverIp}/api/user`)

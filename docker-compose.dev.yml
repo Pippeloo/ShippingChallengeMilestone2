@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  scm2_frontend_jt:
+  scm2-frontend-jt:
     build:
       context: ./frontend
       dockerfile: Dockerfile
@@ -11,11 +11,11 @@ services:
       - ./frontend/src:/usr/share/nginx/html
       - ./frontend/config/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
-      - scm2_backend_jt
+      - scm2-backend-jt
     networks:
       - frontend
 
-  scm2_backend_jt:
+  scm2-backend-jt:
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -26,12 +26,12 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - scm2_db_jt
+      - scm2-db-jt
     networks:
       - frontend
       - backend
 
-  scm2_db_jt:
+  scm2-db-jt:
     image: postgres:15.1-alpine
     environment:
       POSTGRES_PASSWORD: mysecretpassword
