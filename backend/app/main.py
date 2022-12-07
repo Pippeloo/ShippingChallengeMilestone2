@@ -1,4 +1,3 @@
-from typing import Union
 from fastapi import FastAPI
 from .classes.Database import Database
 import os
